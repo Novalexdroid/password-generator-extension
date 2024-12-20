@@ -11,7 +11,7 @@ A simple web extension to generate random passwords quickly.
 ### Step 1: Clone or Download the Extension
 1. Download the repository as a ZIP file or clone it using Git:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Novalexdroid/password-generator-extension.git
    ```
 2. Extract the contents of the ZIP file, if applicable.
 
