@@ -36,7 +36,7 @@ div.password input {
 } 
   
 button { 
-    background-color: #ff4949; 
+    background-color: #2b6286; 
     color: #fff; 
     text-transform: uppercase; 
     padding: 5px 15px; 
@@ -86,7 +86,7 @@ button.generate {
   
 h1 { 
     /* text-align: center;  */
-    color: #ff4949; 
+    color: #2b6286; 
 }
 span {
     color: #151515;
