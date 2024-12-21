@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Random Password Generator",
-    "version": "1.0",
+    "version": "1.0.0",
     "description": "A simple web extension to pick a random password quickly",
     "action": {
       "default_popup": "popup.html",
