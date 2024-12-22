@@ -1,20 +1,18 @@
 {
-    "manifest_version": 3,
-    "name": "Random Password Generator",
-    "version": "1.0.0",
-    "description": "A simple web extension to pick a random password quickly",
-    "action": {
-      "default_popup": "popup.html",
-      "default_icon": "icons/icon48.png"
-    },
-    "icons": {
-      "16": "icons/icon16.png",
-      "48": "icons/icon48.png",
-      "128": "icons/icon128.png"
-    },
-    "permissions": [
-      "storage",
-      "activeTab"
-    ]
+  "manifest_version": 3,
+  "name": "Password Generator",
+  "description": "Generate strong passwords with customizable settings.",
+  "version": "1.0.1",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon128.png"
+  },
+  "permissions": [
+    "clipboardWrite"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   }
-  
+}

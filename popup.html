@@ -1,64 +1,42 @@
-<!-- index.html  -->
-<!DOCTYPE html> 
-<html lang="en"> 
-  
-<head> 
-    <meta charset="UTF-8" /> 
-    <meta name="viewport" 
-          content="width=device-width,  
-                   initial-scale=1.0" /> 
-    <link rel="stylesheet" href="popup.css" /> 
-    <title>Password Generator</title> 
-</head> 
-  <center>
-<body> 
-    <h1>Password Generator</h1> 
-    <div class="generator"> 
-        <div class="password"> 
-            <input type="text" value="test" /> 
-            <button>copy</button> 
-        </div> 
-        <div class="range"> 
-            <input type="range" min="4" 
-                   max="24" value="8" /> 
-            <span>8</span> 
-        </div> 
-        <div class="options"> 
-            <div class="option"> 
-                <label> 
-                    <input type="checkbox" 
-                           id="lowercaseCb" checked /> 
-                    <span>a-z</span> 
-                </label> 
-            </div> 
-            <div class="option"> 
-                <label> 
-                    <input type="checkbox" 
-                           id="uppercaseCb" /> 
-                    <span>A-Z</span> 
-                </label> 
-            </div> 
-            <div class="option"> 
-                <label> 
-                    <input type="checkbox" 
-                           id="digitsCb" /> 
-                    <span>0-9</span> 
-                </label> 
-            </div> 
-            <div class="option"> 
-                <label> 
-                    <input type="checkbox" 
-                           id="specialsCb" /> 
-                    <span>!@$#%^</span> 
-                </label> 
-            </div> 
-        </div> 
-        <button class="generate"> 
-            generate 
-        </button> 
-    </div> 
-    <script src="popup.js"></script> 
-</body> 
-</center>
-  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Password Generator</h1>
+
+    <!-- Length Slider -->
+    <div class="slider-container">
+      <label for="length">Length: <span id="lengthValue">12</span></label>
+      <input type="range" id="length" min="8" max="20" value="12" />
+    </div>
+
+    <!-- Character Options -->
+    <div class="checkbox-container">
+      <label><input type="checkbox" id="lowercase" checked> Lowercase</label>
+      <label><input type="checkbox" id="uppercase" checked> Uppercase</label>
+      <label><input type="checkbox" id="digits" checked> Digits</label>
+      <label><input type="checkbox" id="specials" checked> Special Characters</label>
+    </div>
+
+    <!-- Generated Password -->
+    <div class="password-container">
+      <input type="text" id="password" readonly>
+      <!-- Randomize Password Button -->
+      <button id="randomizeBtn">Randomize Password</button>
+    </div>
+
+    
+ 
+        <input type="hidden" id="themeCheckbox">
+     
+    </div>
+
+  <script src="popup.js"></script>
+</body>
 </html>
