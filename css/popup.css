@@ -65,10 +65,47 @@ button:hover {
   background-color: #45a049;
 }
 
+/* Flexbox for theme toggle */
+.theme-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.theme-text {
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
 input[type="checkbox"] {
   width: 20px;
   height: 20px;
 }
+
+/* Dark theme */
+body.dark-theme {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-theme .container {
+  background-color: #444;
+}
+
+body.dark-theme input[type="text"] {
+  background-color: #555;
+  color: white;
+}
+
+body.dark-theme button {
+  background-color: #666;
+}
+
+body.dark-theme button:hover {
+  background-color: #555;
+}
+
 .checkbox-container {
   display: flex;
   flex-direction: column;
