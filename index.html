@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="favicon.png" type="image/png">
-  <title>Password Generator Extension</title>
+  <title>Password Generator Releases History</title>
   <style>
+    /* General Styles */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -15,7 +16,7 @@
     }
 
     .container {
-      max-width: 800px;
+      max-width: 90%;
       margin: 50px auto;
       padding: 20px;
       background: #fff;
@@ -26,6 +27,7 @@
     h1 {
       text-align: center;
       color: #444;
+      font-size: 2em;
     }
 
     table {
@@ -69,11 +71,80 @@
     a.button:hover {
       background-color: #45a049;
     }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* .header img {
+      max-width: 50px;
+    } */
+
+    /* Show details on larger screens */
+    td ul {
+      display: block;
+    }
+
+    .truncate, .show-details {
+      display: none;
+    }
+
+    /* Responsive Styles for smaller screens */
+    @media (max-width: 768px) {
+      .header {
+        list-style: center;
+        display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      }
+      .header h1 {
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+      .header img {
+        position: fixed;
+    float: right;
+    right: 20px;
+      }
+    
+      .header a {
+        display: block;
+        margin: 0 auto;
+      }
+
+      table th, table td {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      td ul {
+        display: none;
+      }
+
+      .truncate {
+        display: inline;
+      }
+
+      .show-details {
+        display: inline;
+        color: #4CAF50;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Password Generator Extension</h1>
+    <div class="header">
+      <h1>Release History</h1>
+      <a href="/"><img src="src/git.svg" alt="github repo" title="Open Git Repo"></a>
+    </div>
     <table>
       <thead>
         <tr>
@@ -93,25 +164,48 @@
               <li>Improved password customization</li>
               <li>Clipboard integration</li>
             </ul>
+            <span class="truncate">Added dark theme toggle...</span>
+            <span class="show-details" onclick="toggleDetails(this)">View Details</span>
           </td>
           <td>December 26, 2024</td>
-          <td><a href="https://github.com/Novalexdroid/password-generator-extension/archive/refs/tags/v1.0.1.zip" class="button">Download</a></td>
+          <td><a href="https://github.com/Novalexdroid/password-generator-extension/archive/refs/tags/v1.0.1.zip" class="button" title="v1.0.1">Download</a></td>
         </tr>
         <tr>
           <td>v1.0.0</td>
           <td>
             <ul>
-               <li>Random password generation.</li>
-               <li> Options for including lowercase, uppercase, digits, and special characters.</li>
-               <li>Copy functionality for generated passwords.</li>
-                
+              <li>Random password generation.</li>
+              <li>Options for including lowercase, uppercase, digits, and special characters.</li>
+              <li>Copy functionality for generated passwords.</li>
             </ul>
+            <span class="truncate">Random password generation...</span>
+            <span class="show-details" onclick="toggleDetails(this)">View Details</span>
           </td>
           <td>December 21, 2024</td>
-          <td><a href="https://github.com/Novalexdroid/password-generator-extension/archive/refs/tags/v1.0.0.zip" class="button">Download</a></td>
+          <td><a href="https://github.com/Novalexdroid/password-generator-extension/archive/refs/tags/v1.0.0.zip" class="button" title="v1.0.0">Download</a></td>
         </tr>
       </tbody>
     </table>
   </div>
+  <footer style="text-align: center; padding: 20px; background-color: #f1f1f1; margin-top: 20px;">
+    <p>Created by <a href="https://github.com/Novalexdroid" target="_blank">Novalexdroid</a></p>
+    <p>&copy; 2024 Password Generator Releases History. All Rights Reserved.</p>
+  </footer>
+  <script>
+    function toggleDetails(element) {
+      const truncate = element.previousElementSibling;
+      const details = truncate.previousElementSibling;
+
+      if (details.style.display === "none" || !details.style.display) {
+        details.style.display = "block";
+        truncate.style.display = "none";
+        element.innerText = "Hide Details";
+      } else {
+        details.style.display = "none";
+        truncate.style.display = "inline";
+        element.innerText = "View Details";
+      }
+    }
+  </script>
 </body>
 </html>
