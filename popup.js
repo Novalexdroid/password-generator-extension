@@ -1,60 +1,56 @@
-// script.js 
-function generate() { 
-    let dictionary = ""; 
-    if (document.getElementById("lowercaseCb").checked) { 
-        dictionary += "qwertyuiopasdfghjklzxcvbnm"; 
-    } 
-    if (document.getElementById("uppercaseCb").checked) { 
-        dictionary += "QWERTYUIOPASDFGHJKLZXCVBNM"; 
-    } 
-    if (document.getElementById("digitsCb").checked) { 
-        dictionary += "1234567890"; 
-    } 
-    if (document.getElementById("specialsCb").checked) { 
-        dictionary += "!@#$%^&*()_+-={}[];<>:"; 
-    } 
-    const length = document.querySelector( 
-        'input[type="range"]').value; 
+document.addEventListener("DOMContentLoaded", function () {
   
-    if (length < 1 || dictionary.length === 0) { 
-        return; 
-    } 
+    // Password length update
+    const lengthSlider = document.getElementById("length");
+    const lengthValue = document.getElementById("lengthValue");
+    lengthSlider.addEventListener("input", function () {
+      lengthValue.textContent = lengthSlider.value;
+    });
   
-    let password = ""; 
-    for (let i = 0; i < length; i++) { 
-        const pos = Math.floor(Math.random() * dictionary.length); 
-        password += dictionary[pos]; 
-    } 
+    // Randomize password functionality
+    document.getElementById("randomizeBtn").addEventListener("click", function () {
+      generatePassword(); // Regenerate the password with the current settings
+    });
   
-    document.querySelector( 
-        'input[type="text"]').value = password; 
-} 
+    // Function to generate password
+function generatePassword() {
+      const length = lengthSlider.value;
+      let dictionary = "";
   
-[ 
-    ...document.querySelectorAll( 
-        'input[type="checkbox"], button.generate'), 
-].forEach((elem) => { 
-    elem.addEventListener("click", generate); 
-}); 
+      if (document.getElementById("lowercase").checked) dictionary += "abcdefghijklmnopqrstuvwxyz";
+      if (document.getElementById("uppercase").checked) dictionary += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      if (document.getElementById("digits").checked) dictionary += "0123456789";
+      if (document.getElementById("specials").checked) dictionary += "!@#$%^&*()_+-={}[];:,.<>?";
   
-document.querySelector('input[type="range"]').addEventListener( 
-    "input", (e) => { 
-        document.querySelector( 
-            "div.range span").innerHTML = e.target.value; 
-        generate(); 
-    }); 
+      if (dictionary.length === 0) {
+        alert("Please select at least one character type.");
+        return;
+      }
   
-document.querySelector("div.password button").addEventListener( 
-    "click", () => { 
-        const pass = document.querySelector('input[type="text"]').value; 
-        navigator.clipboard.writeText(pass).then(() => { 
-            document.querySelector( 
-                "div.password button").innerHTML = "copied!"; 
-            setTimeout(() => { 
-                document.querySelector( 
-                    "div.password button").innerHTML = "copy"; 
-            }, 1000); 
-        }); 
-    }); 
+      let password = "";
+      for (let i = 0; i < length; i++) {
+        password += generateRandomCharacter(dictionary);
+      }
   
-generate();
+      document.getElementById("password").value = password;
+    }
+  
+    // Secure random character generation using the crypto API
+    function generateRandomCharacter(dictionary) {
+      const array = new Uint32Array(1);
+      window.crypto.getRandomValues(array);
+      const randomIndex = array[0] % dictionary.length;
+      return dictionary[randomIndex];
+    }
+  
+    // Copy password to clipboard when clicked
+    document.getElementById("password").addEventListener("click", function () {
+      const passwordField = document.getElementById("password");
+ passwordField.select();  // Select the text in the input field
+      document.execCommand("copy"); // Copy the selected text to clipboard
+      alert("Password copied to clipboard!");
+    });
+  
+    // Generate a password on load
+    generatePassword();
+  });
