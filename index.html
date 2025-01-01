@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Password Generator - Release History</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- GSAP JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    
+    <!-- Custom styles -->
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f4f7;
+            padding: 20px;
+        }
+        table {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            font-size: 1rem;
+        }
+        th {
+            background-color: #f5f5f7;
+        }
+        .download-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007aff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .download-link:hover {
+            background-color: #0051a8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="text-center mb-5">
+            <h1>Password Generator - Release History</h1>
+            <p>Welcome to the release history page of the Password Generator project. Below you'll find all the updates, enhancements, and fixes made to the app.</p>
+        </header>
+
+        <section id="release-history">
+            <h2 class="mb-4">Version History</h2>
+            
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Version</th>
+                        <th>Release Date</th>
+                        <th>Changes</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Version 2.1.0 -->
+                    <tr id="release-v2-1">
+                        <td>2.1.0</td>
+                        <td>January 5, 2025</td>
+                        <td>
+                            <ul>
+                                <li><strong>Password Copy Modal Box:</strong> Added a modal box for feedback when the user clicks to copy the generated password. Includes a checkmark icon and a message, sliding up smoothly from the bottom of the screen.</li>
+                                <li><strong>Enhanced User Feedback:</strong> Replaced the alert pop-up with a custom modal box that automatically disappears after 3 seconds.</li>
+                                <li><strong>Styling Enhancements:</strong> Improved modal box styling with rounded corners and a frosted glass effect, enhancing its appearance.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <a href="https://github.com/Novalexdroid/password-generator-extension/releases/download/v2.1.0/password-generator-v2.1.0.zip" class="download-link" data-toggle="tooltip" title="Download Version 2.1.0">Download</a>
+                        </td>
+                    </tr>
+
+                    <!-- Version 2.0.0 -->
+                    <tr id="release-v2">
+                        <td>2.0.0</td>
+                        <td>December 31, 2024</td>
+                        <td>
+                            <ul>
+                                <li><strong>UI Redesign:</strong> A complete overhaul of the interface with a cleaner, modern look.</li>
+                                <li><strong>Dark Mode:</strong> Added support for dark mode toggle.</li>
+                                <li><strong>Improved Navigation:</strong> Enhanced user experience with better navigation flows.</li>
+                                <li><strong>Mobile Optimization:</strong> Optimized for better usability on mobile devices.</li>
+                                <li><strong>Bug Fixes:</strong> Fixed layout issues on certain browsers.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <a href="https://github.com/Novalexdroid/password-generator-extension/releases/download/v2.0.0/password-generator-v2.0.0.zip" class="download-link" data-toggle="tooltip" title="Download Version 2.0.0">Download</a>
+                        </td>
+                    </tr>
+
+                    <!-- Version 1.0.0 -->
+                    <tr id="release-v1">
+                        <td>1.0.0</td>
+                        <td>December 10, 2024</td>
+                        <td>
+                            <ul>
+                                <li><strong>Basic Password Generator:</strong> Generates strong random passwords.</li>
+                                <li><strong>User Interface:</strong> Initial UI for entering password parameters and displaying results.</li>
+                                <li><strong>Basic Features:</strong> Includes options for password length, characters to include, and more.</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <a href="https://github.com/Novalexdroid/password-generator-extension/releases/download/v1.0.0/password-generator-v1.0.0.zip" class="download-link" data-toggle="tooltip" title="Download Version 1.0.0">Download</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <footer class="text-center mt-5">
+            <p>&copy; 2024 Password Generator. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS (optional for interactive elements like modals) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Initialize Bootstrap tooltips -->
+    <script>
+        $(document).ready(function() {
+            // Enable tooltips for elements with 'data-toggle="tooltip"'
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        // GSAP Animations for page elements
+        gsap.from("header", { opacity: 0, y: -50, duration: 1 });
+        gsap.from(".table", { opacity: 0, scale: 0.9, duration: 1, delay: 1 });
+        
+        // Animate each release row with a delay
+        gsap.from("#release-v2-1", { opacity: 0, y: 20, duration: 1, delay: 0.5 });
+        gsap.from("#release-v2", { opacity: 0, y: 20, duration: 1, delay: 1.5 });
+        gsap.from("#release-v1", { opacity: 0, y: 20, duration: 1, delay: 2.5 });
+        
+        // Hover effect for the download buttons
+        gsap.utils.toArray('.download-link').forEach(link => {
+            link.addEventListener("mouseenter", () => {
+                gsap.to(link, { scale: 1.1, backgroundColor: "#0051a8", duration: 0.3 });
+            });
+            link.addEventListener("mouseleave", () => {
+                gsap.to(link, { scale: 1, backgroundColor: "#007aff", duration: 0.3 });
+            });
+        });
+    </script>
+
+</body>
+</html>
